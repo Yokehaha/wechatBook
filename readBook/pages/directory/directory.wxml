@@ -1,0 +1,6 @@
+<!--pages/directory/directory.wxml-->
+<view class="side">
+  <text>目录</text>
+  <van-divider />
+  <text wx:for="{{num}}" catchtap="backRead" class="numText" wx:key="*this" id="{{index}}">第{{item}}章\n</text>
+</view>

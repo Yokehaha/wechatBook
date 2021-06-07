@@ -1,0 +1,4 @@
+.groupView{width:315px;padding:0 30px;}
+.inputView{margin-top:15px;}
+.btnView{margin:15px 0;}
+.textView{color:#ccc;font-size:12px;float:right;}

@@ -1,0 +1,75 @@
+<!--pages/details/details.wxml-->
+<view class="container">
+  <view class="book">
+    <van-image
+      width="120px"
+      height="175px"
+      fit="cover"
+      src="{{bookImg}}"
+    />
+    <text>\n{{bookName}}\n</text>
+    <text>{{author}}</text>
+  </view>
+  <view class="introduction">
+    <text class="conts {{isF?'hide':''}}">{{motto}}</text>
+    <text bindtap='ifSpread'>{{isF ? '展开' : '收起'}}</text>
+  </view>
+  <view class="score">
+    <text>精彩点评--</text>
+    <text>35</text>
+    <text class="kong"></text>
+    <text>8.5分</text>
+    <van-rate
+      value="{{ value }}"
+      size="{{ 20 }}"
+      allow-half
+      color="#ee0a24"
+      void-color="#eee"
+      void-icon="star"
+      bind:change="onChange"
+      readonly
+    />
+  </view>
+  <view class="comment">
+    <view class="commentLeft">
+      <van-image
+        width="40px"
+        height="40px"
+        fit="coever"
+        round
+        src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/1622008251710.png"
+      />
+    </view>
+    <view class="commentRight">
+      <text>刘松</text>
+      <text>--点评此书</text>
+      <van-rate
+        value="{{ value }}"
+        size="{{ 14 }}"
+        allow-half
+        color="rgba(166, 166, 166, 0.7)"
+        void-color="#eee"
+        void-icon="star"
+        bind:change="onChange"
+        readonly
+      />
+      <text>\n{{comment}}\n</text>
+      <text>{{commentTime}}</text>
+    </view>
+  </view>
+  <view class="kongView"></view>
+  <view class="btn">
+    <van-button type="primary" square bindtap="jionShelf">加入书架</van-button>
+    <van-button type="info" square bindtap="toRead">立即阅读</van-button>
+  </view>
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+      <view class="block">
+        <text>登录即可立即阅读\n</text>
+        <text>是否前往登录页面\n</text>
+        <van-button type="default">取消</van-button>
+        <van-button type="primary" catchtap="toLogin">确定</van-button>
+      </view>
+    </view>
+  </van-overlay>
+</view>

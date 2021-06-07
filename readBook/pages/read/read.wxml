@@ -1,0 +1,27 @@
+<view class="container" bindtap="showPopup" style="background:{{backgroundColor}};color:{{color}}">
+  <view class="title">
+    <text>第{{chapter}}章\n</text>
+    <text>{{chapterTitle}}</text>
+  </view>
+  <van-divider />
+  <view class="content">
+    <text id="content" style="font-size:{{fontSize}}px">{{content}}</text>
+  </view>
+</view>
+<van-popup show="{{ show }}" bindtap="onClose" position="bottom">
+  <view class="set">
+    <view class="left">
+      <van-button type="info" round bindtap="toDirectory">目录</van-button>
+      <text>字体大小：</text>
+      <view class="right">
+        <van-slider value="{{fontSize}}" catch:change="onChange" max="36" min="14"/>
+      </view>
+    </view>
+    <view class="bottom">
+      <text>背景色：</text>
+      <van-button color="{{item}}" round wx:for="{{bgColor}}" catchtap="onColor" id="bgBtn{{index}}" wx:key="*this"></van-button>
+      <text>夜间模式：</text>
+      <van-switch checked="{{ checked }}" catch:change="onChecked" />
+    </view>
+  </view>
+</van-popup>

@@ -1,0 +1,4 @@
+/* pages/show/show.wxss */
+page{background:#f0f0f0;}
+.container{display:flex;flex-wrap:wrap;flex-direction:row;width:100%;height:auto;}
+.booksList{width:49%;height:200px;text-align:center;padding-top:10px;background:white;margin-top:7px;}

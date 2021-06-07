@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
+  "navigationBarTitleText": "登录",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#454553"
+}

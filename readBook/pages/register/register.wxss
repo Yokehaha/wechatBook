@@ -1,0 +1,5 @@
+/* pages/login/login.wxss */
+.inputGroup{width: 345px;}
+.inputView{width:315px;padding:0 30px;margin-top:15px;}
+.btnView{margin:15px 0;}
+.textView{color:#ccc;font-size:12px;padding:0 0 15px;}

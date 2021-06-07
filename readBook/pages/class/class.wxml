@@ -1,0 +1,55 @@
+<!--pages/class/class.wxml-->
+<view class="container">
+  <van-tabs swipeable animated  bind:change="onChange">
+    <van-tab title="男生">
+      <view class="man">
+        <van-sidebar active-key="{{ activeKey }}" class="manSidebar" bind:change="onChange">
+          <van-sidebar-item title="{{item}}" wx:for="{{manClass}}" wx:key="*this"/>
+        </van-sidebar>
+        <view class="content">
+          <view class="everyOne" wx:for="{{manText}}" wx:key="_id" wx:if="{{hasBook==true}}" >
+            <view id="{{item.bookName}}+{{item.bookImg}}+{{item.author}}" bindtap="toBook">
+              <view class="kong"></view>
+              <van-image
+                width="74px"
+                height="90px"
+                fit="cover"
+                src="{{item.bookImg}}"
+              />
+              <view class="everyOneText">
+                <text>{{item.bookName}}\n</text>
+                <text>{{item.author}}</text>
+              </view>
+            </view>
+          </view>
+          <van-empty image="search" description="暂时没有该分类的书籍" wx:if="{{hasBook==false}}"/>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="女生">
+      <view class="woman">
+        <van-sidebar active-key="{{ activeKey }}" class="womanSidebar" bind:change="onChange">
+          <van-sidebar-item title="{{item}}" wx:for="{{womanClass}}" wx:key="*this"/>
+        </van-sidebar>
+        <view class="content">
+          <view class="everyOne" wx:for="{{manText}}" wx:key="_id" wx:if="{{hasBook==true}}" >
+            <view id="{{item.bookName}}+{{item.bookImg}}+{{item.author}}" bindtap="toBook">
+              <view class="kong"></view>
+              <van-image
+                width="74px"
+                height="90px"
+                fit="cover"
+                src="{{item.bookImg}}"
+              />
+              <view class="everyOneText">
+                <text>{{item.bookName}}\n</text>
+                <text>{{item.author}}</text>
+              </view>
+            </view>
+          </view>
+          <van-empty image="search" description="暂时没有该分类的书籍" wx:if="{{hasBook==false}}"/>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

@@ -1,0 +1,49 @@
+<view class="container">
+  <van-image 
+    src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/login/login.png" 
+    fit="widthFix" 
+    width="375px"
+    height="227px">
+  </van-image>
+  <view class="groupView">
+    <view class="inputView">
+      <van-cell-group>
+        <!-- 用户名 -->
+        <van-field
+          model:value="{{ userName }}"
+          name="userName"
+          data-name="userName"
+          required
+          label="用户名"
+          placeholder="请输入用户名"
+          error-message="{{userNameErrorMessage}}"
+        />
+        <!-- 密码 -->
+        <van-field
+        model:value="{{ password }}"
+          name="password"
+          data-name="password"
+          required
+          label="密码"
+          placeholder="请输入密码"
+          error-message="{{passwordErrorMessage}}"
+        />
+      </van-cell-group>
+    </view>
+    <view class="btnView">
+      <van-button 
+          round type="info" 
+          bind:click="ifCheck" 
+          color="#454553" 
+          size="large"
+          class="vanButton">
+          登录
+        </van-button>
+    </view>
+    <van-divider borderColor="#ccc"/>
+    <navigator url="../register/register">
+      <view class="textView">没有账号？先去注册</view>
+    </navigator>
+  </view>
+</view>
+<van-notify id="van-notify" />

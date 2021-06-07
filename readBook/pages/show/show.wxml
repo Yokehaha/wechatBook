@@ -1,0 +1,14 @@
+<!--pages/show/show.wxml-->
+<view class="container">
+  <view class="booksList" wx:for="{{booksList}}" bindtap="toDetails" id="{{index}}">
+    <van-image
+      width="96px"
+      height="140px"
+      fit="cover"
+      src="{{item.bookImg}}"
+    />
+    <text>\n{{item.bookName}}\n</text>
+    <text>{{item.author}}</text>
+  </view>
+</view>
+<van-empty description="没有找到相关书籍" wx:if="{{notFound}}"/>

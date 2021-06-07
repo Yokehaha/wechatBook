@@ -1,0 +1,411 @@
+<view class="container">
+  <!-- 吸顶搜索框 -->
+  <view class="fixedSearch" wx:if="{{isFixed}}">
+    <van-search
+      value="{{ value }}"
+      shape="round"
+      background="#f0f0f0"
+      placeholder="请输入搜索关键词"
+      bind:focus="toSearch"
+    />
+  </view>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" indicator-color="rgba(0,0,0,.3)" autoplay="true" interval="3000">
+    <swiper-item>
+      <van-image
+        width="752rpx"
+        height="300rpx"
+        fit="cover"
+        src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/swiper/swiper1.jpg"
+      />
+    </swiper-item>
+    <swiper-item>
+      <van-image
+        width="752rpx"
+        height="300rpx"
+        fit="cover"
+        src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/swiper/swiper2.jpg"
+      />
+    </swiper-item>
+    <swiper-item>
+      <van-image
+        width="752rpx"
+        height="300rpx"
+        fit="cover"
+        src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/swiper/swiper3.jpg"
+      />
+    </swiper-item>
+  </swiper>
+  <!-- 搜索框 -->
+  <view class="search">
+    <van-search
+      value="{{ value }}"
+      shape="round"
+      background="#f0f0f0"
+      placeholder="请输入搜索关键词"
+      bind:focus="toSearch"
+    />
+  </view>
+  <!-- 搜索标签 -->
+  <view class="searchView">
+    <view class="searchTop">
+      <text>热门搜索</text>
+      <van-icon name="replay" color="rgba(52, 152, 254, 1)" class="searchIcon" bindtap="change"/>
+    </view>
+    <view class="searchBottom" >
+      <view wx:for="{{smallList}}" wx:key="unique" bindtap="goSearch" id="{{item}}">
+        <text class="changeText">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 热门推荐 -->
+  <view class="hotView">
+    <text class="hotRecommend">热门推荐</text>
+    <text class="hotAll">查看全部</text>
+    <scroll-view scroll-x class="scrollX" style="width: 690rpx; height: 508rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+      <view class="scrOut">
+        <view class="scrBox" wx:for="{{scroll}}" bindtap="toDetails" id="{{index}}">
+          <van-image
+            width="96px"
+            height="140px"
+            fit="cover"
+            src="{{item.bookImg}}"
+          />
+          <text>{{item.bookName}}\n</text>
+          <text>{{item.author}}\n</text>
+          <text>{{item.people}}人同时在读\n</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 小编精选 -->
+  <view class="selectView">
+    <view class="selectZero">
+      <van-row class="textRow">
+        <van-col span="24">
+          <text class="selectText">小编精选</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view>
+      <view class="selectOne">
+        <van-row class="oneRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select1.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>最强特种兵王\n</text>
+            <text>云中羊\n</text>
+            <view class="van-multi-ellipsis--l2">
+              【热血爽文】军刀榜，东象、西虎、南狂、北妖，我就是兵王叶凡，绰号【南狂】。 一双...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectTwo">
+        <van-row class="twoRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select2.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>万古神帝\n</text>
+            <text>飞天鱼\n</text>
+            <view class="van-multi-ellipsis--l2">
+              八百年前，明帝之子张若尘，被他的未婚妻池瑶公主杀死，一代天骄，就此陨落。 八百年...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectThree">
+        <van-row class="threeRow" gutter="60">
+          <van-col span="4">
+              <van-image
+                width="56"
+                height="80"
+                lazy-load
+                fit="cover"
+                src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select3.jpg"
+              />
+          </van-col>
+          <van-col span="20">
+            <text>失物守护者\n</text>
+            <text>露丝·霍根\n</text>
+            <view class="van-multi-ellipsis--l2">
+              温暖席卷英国年度权威榜单，感动欧美千万读者的心灵救赎之作。我沉溺于收集每一个失...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectFour">
+        <van-row class="fourRow" gutter="12">
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select4.jpg"
+            />
+            <text>不灭龙帝\n</text>
+            <text>妖夜</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select5.jpg"
+            />
+            <text>画婚为牢\n</text>
+            <text>嫣然而笑</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select6.jpg"
+            />
+            <text>龙族\n</text>
+            <text>江南</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select7.jpg"
+            />
+            <text>麻衣神算子\n</text>
+            <text>骑马钓鱼</text>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+    <van-divider />
+    <view>
+      <view class="selectOne">
+        <van-row class="oneRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select8.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>明朝那些事儿（全集）\n</text>
+            <text>当年明月\n</text>
+            <view class="van-multi-ellipsis--l2">
+              《明朝那些事儿》主要讲述的是从1344年到1644年这三百年间关于明朝的一些故事。以...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectTwo">
+        <van-row class="twoRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select4.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>不灭龙帝\n</text>
+            <text>妖夜\n</text>
+            <view class="van-multi-ellipsis--l2">
+              身怀绝世血脉，少年自北漠拉棺而来，他要将世上神魔全部埋葬。
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectThree">
+        <van-row class="threeRow" gutter="60">
+          <van-col span="4">
+              <van-image
+                width="56"
+                height="80"
+                lazy-load
+                fit="cover"
+                src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select3.jpg"
+              />
+          </van-col>
+          <van-col span="20">
+            <text>失物守护者\n</text>
+            <text>露丝·霍根\n</text>
+            <view class="van-multi-ellipsis--l2">
+              温暖席卷英国年度权威榜单，感动欧美千万读者的心灵救赎之作。我沉溺于收集每一个失...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectFour">
+        <van-row class="fourRow" gutter="12">
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select9.jpg"
+            />
+            <text>最强兵王\n</text>
+            <text>丛林狼</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select10.jpg"
+            />
+            <text>校花贴身狂少\n</text>
+            <text>鱼人二代</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select11.jpg"
+            />
+            <text>圣墟\n</text>
+            <text>辰东</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select7.jpg"
+            />
+            <text>麻衣神算子\n</text>
+            <text>骑马钓鱼</text>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+    <van-divider />
+    <view>
+      <view class="selectOne">
+        <van-row class="oneRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select12.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>驭房有术\n</text>
+            <text>铁锁\n</text>
+            <view class="van-multi-ellipsis--l2">
+              进城闯荡的小阿姨衣锦还乡，张禹的老妈心动了，决定让儿子前去投奔。不曾想，所谓的...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectTwo">
+        <van-row class="twoRow" gutter="60">
+          <van-col span="4">
+            <van-image
+              width="56"
+              height="80"
+              lazy-load
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select13.jpg"
+            />
+          </van-col>
+          <van-col span="20">
+            <text>三体（全集）\n</text>
+            <text>刘慈欣\n</text>
+            <view class="van-multi-ellipsis--l2">
+              文化大革命如火如荼进行的同时，军方探寻外星文明的绝秘计划“红岸工程”取得了突破性...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectThree">
+        <van-row class="threeRow" gutter="60">
+          <van-col span="4">
+              <van-image
+                width="56"
+                height="80"
+                lazy-load
+                fit="cover"
+                src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select14.jpg"
+              />
+          </van-col>
+          <van-col span="20">
+            <text>白鹿原\n</text>
+            <text>陈忠实\n</text>
+            <view class="van-multi-ellipsis--l2">
+              同名电视剧由张嘉译、何冰、秦海璐、刘佩琪等人主演。当代文学里程碑之作，茅盾文学...
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="selectFour">
+        <van-row class="fourRow" gutter="12">
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select15.jpg"
+            />
+            <text>一念之间\n</text>
+            <text>伊馨茉彤心</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select16.jpg"
+            />
+            <text>兵者\n</text>
+            <text>七品</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select17.jpg"
+            />
+            <text>斗破苍穹\n</text>
+            <text>天蚕土豆</text>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="68px"
+              height="98px"
+              fit="cover"
+              src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/index/select7.jpg"
+            />
+            <text>麻衣神算子\n</text>
+            <text>骑马钓鱼</text>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  </view>
+</view>

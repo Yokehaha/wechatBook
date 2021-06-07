@@ -1,0 +1,134 @@
+<!--pages/editor/editor.wxml-->
+<view class="container">
+  <!-- 账号 -->
+  <van-cell title="账号" size="large" value="{{userName}}"/>
+  <!-- 密码 -->
+  <van-cell 
+    title="密码" 
+    id="password"
+    size="large" 
+    bindtap="onOpen"
+    is-link 
+    value="修改密码"/>
+  <van-dialog
+    use-slot
+    title="修改密码"
+    id="password"
+    show="{{ passwordShow }}"
+    show-cancel-button
+    bind:close="onDown"
+    bind:confirm="changePassword"
+  >
+    <!-- 旧密码 -->
+    <van-field
+      value="{{ oldPassword }}"
+      label="旧密码"
+      id="oldPassword"
+      placeholder="请输入旧密码"
+      error-message="{{oldErrMsg}}"
+      border="{{ false }}"
+      bind:blur="lostBlur"
+      bind:change="ifClear"
+    />
+    <!-- 新密码 -->
+    <van-field
+      value="{{ newPassword }}"
+      label="新密码"
+      id="newPassword"
+      placeholder="请输入新密码"
+      error-message="{{newErrMsg}}"
+      border="{{ false }}"
+      bind:blur="lostBlur"
+      bind:change="ifClear"
+    />
+    <van-divider />
+    <!-- 密码提示信息 -->
+    <view class="textView">
+      <text>提示：\n</text>
+      <text>密码至少包含 数字 和 英文,长度6-20</text>
+    </view>
+  </van-dialog>
+  <!-- 头像 -->
+  <view bind:tap="onOpen" id="images">
+    <van-cell is-link center="true">
+      <view slot="title">
+        <van-image
+          round
+          fit="cover"
+          width="50px"
+          height="50px"
+          src="{{userImg}}"
+        />
+      </view>
+      <text>修改头像</text>
+    </van-cell>
+  </view>
+  <!-- 性别 -->
+  <van-cell 
+    title="性别" 
+    id="sex"
+    is-link 
+    bindtap="onOpen" 
+    size="large" 
+    value="{{sex}}"/>
+  <van-action-sheet
+    show="{{ sexShow }}"
+    id="sex"
+    actions="{{ actions }}"
+    bind:close="onClose"
+    bind:select="onSelect"
+  />
+  <!-- 地区 -->
+  <van-cell 
+    title="地区" 
+    id="area"
+    is-link 
+    bindtap="onOpen" 
+    size="large" 
+    value="{{area}}"/>
+  <van-action-sheet 
+    show="{{ areaShow }}"
+    bind:close="onClose"
+    bind:select="onSelect">
+    <van-area
+      area-list="{{ areaList }}"
+      id="area"
+      columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}"
+      title="地区"
+      bind:confirm='onClose'
+      bind:change='onSelect'
+      bind:cancel='onDown'
+    />
+  </van-action-sheet>
+  <!-- 出生日期 -->
+  <van-cell 
+    title="出生日期"
+    id="birthday"
+    is-link 
+    bindtap="onOpen" 
+    size="large" 
+    value="{{birthday}}"/>
+  <van-action-sheet 
+    show="{{ birthdayShow }}"
+    bind:close="onClose"
+    bind:select="onSelect">
+    <van-datetime-picker
+      type="date"
+      id="timePicker"
+      value="{{ currentDate }}"
+      bind:input="onInput"
+      bind:confirm="onClose"
+      bind:cancel="onDown"
+      min-date="1970"
+      max-date="{{ maxDate }}"
+      formatter="{{ formatter }}"
+    />
+  </van-action-sheet>
+  <!-- 年龄 -->
+  <van-cell title="年龄" size="large" value="{{age}}"/>
+  <!-- 保存 -->
+  <view class="btnView">
+    <van-button round color="#454553" size="large" bindtap="saveAll">保存</van-button>
+  </view>
+</view>
+<van-notify id="van-notify" />

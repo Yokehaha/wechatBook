@@ -1,0 +1,13 @@
+/* pages/shelf/shelf.wxss */
+.shelf{width:100%;height:400px;margin-top:20px;display:flex;flex-wrap:wrap;}
+.books{width:85px;height:176px;background:#f0f0f0;margin:0 20px;}
+.books>text{
+  font-size:12px;
+  color:rgba(56, 56, 56, 1);
+  display:block;
+  width:85px;
+  height:20px;
+  margin-top:5px;
+  text-align:center;
+}
+.notLogin,.noBooks{margin:0 auto;}

@@ -1,0 +1,65 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <van-image 
+    src="cloud://cloud1-3ghh4jpx16007e93.636c-cloud1-3ghh4jpx16007e93-1305604874/images/register/register.png" 
+    fit="widthFix" 
+    width="375px"
+    height="227px">
+  </van-image>
+  <view class="inputView">
+    <van-cell-group>
+      <!-- 用户名 -->
+      <van-field
+        value="{{userName}}"
+        name="userName"
+        data-name="userName"
+        required
+        label="用户名"
+        placeholder="请输入用户名"
+        error-message="{{userNameErrorMessage}}"
+        bind:blur="lostBlur"
+        bind:change="ifClear"
+      />
+      <!-- 密码 -->
+      <van-field
+        value="{{password}}"
+        name="password"
+        data-name="password"
+        required
+        label="密码"
+        placeholder="请输入密码"
+        error-message="{{passwordErrorMessage}}"
+        bind:blur="lostBlur"
+        bind:change="ifClear"
+      />
+      <!-- 确认密码 -->
+      <van-field
+        value="{{rePassword}}"
+        name="rePassword"
+        data-name="rePassword"
+        required
+        label="确认密码"
+        placeholder="请再次输入密码"
+        error-message="{{rePasswordErrorMessage}}"
+        bind:blur="lostBlur"
+        bind:change="ifClear"
+      />
+    </van-cell-group>
+    <view class="btnView">
+      <van-button 
+        round type="info" 
+        bind:click="ifRegister" 
+        color="#454553" 
+        size="large"
+        class="vanButton">
+        注册
+      </van-button>
+    </view>
+    <van-divider borderColor="#ccc"/>
+    <view class="textView">
+      <text>提示：\n</text>
+      <text>{{psdPrompt}}</text>
+    </view>
+  </view>
+</view>
+<van-notify id="van-notify" />

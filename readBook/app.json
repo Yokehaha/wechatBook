@@ -1,0 +1,64 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/details/details",
+    "pages/shelf/shelf",
+    "pages/class/class",
+    "pages/info/info",
+    "pages/editor/editor",
+    "pages/read/read",
+    "pages/directory/directory",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/search/search",
+    "pages/show/show",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "阿松书城",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#8a8a8a",
+    "selectedColor": "#3498fe",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/index.png",
+        "selectedIconPath": "images/tabBar/_index.png"
+      },
+      {
+        "pagePath": "pages/shelf/shelf",
+        "text": "书架",
+        "iconPath": "images/tabBar/shelf.png",
+        "selectedIconPath": "images/tabBar/_shelf.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "分类",
+        "iconPath": "images/tabBar/class.png",
+        "selectedIconPath": "images/tabBar/_class.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "个人",
+        "iconPath": "images/tabBar/info.png",
+        "selectedIconPath": "images/tabBar/_info.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-divider": "@vant/weapp/divider/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

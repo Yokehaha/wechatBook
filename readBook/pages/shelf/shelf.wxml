@@ -1,0 +1,49 @@
+<!--pages/shelf/shelf.wxml-->
+<view class="container">
+  <van-notice-bar
+    left-icon="volume-o"
+    text="{{noticeText}}"
+    speed="30"
+  />
+  <view class="shelf">
+    <view 
+    wx:for="{{books}}" 
+    class="books" 
+    wx:key="_id" 
+    wx:if="{{isLogin}}" 
+    bindtouchstart="bindTouchStart" 
+    bindtouchend="bindTouchEnd"
+    catchtap="bindTap" 
+    catchlongpress="deleteBook" 
+    id="{{item.bookName}}+{{item.bookImg}}+{{item.author}}">
+      <van-image
+        width="85px"
+        height="120px"
+        fit="cover"
+        src="{{item.bookImg}}"
+      />
+      <text>{{item.bookName}}</text>
+      <text>{{item.author}}</text>
+    </view>
+    <view class="notLogin" wx:if="{{notLogin}}">
+      <van-empty description="暂时没有内容" image="error">
+        <van-button round type="danger" class="bottom-button" bindtap="toSinup">
+          点击去登录
+        </van-button>
+      </van-empty>
+    </view>
+    <view class="noBooks" wx:if="{{noBooks}}">
+      <van-empty description="暂时没有收藏的书籍" />
+    </view>
+  </view>
+  <van-action-sheet
+    show="{{ show }}"
+    actions="{{ actions }}"
+    description="你确定要从书架删除这本书吗"
+    cancel-text="取消"
+    bind:select="sureDelete"
+    close-on-click-action
+    bind:cancel = 'noDelete'
+    bind:select = 'sureDelete'
+  />
+</view>

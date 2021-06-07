@@ -1,0 +1,63 @@
+/* pages/details/details.wxss */
+.container{background:#f0f0f0;}
+
+.book{
+  width:375px;
+  height:260px;
+  display:flex;
+  background:white;
+  flex-direction:column;
+  align-items:center;
+  padding:4px 0 14px;
+}
+.book>text:first-of-type{font-size:24px;color:rgba(0, 0, 0, 1);}
+.book>text:last-of-type{font-size:16px;color:rgba(56, 56, 56, 1);}
+.book>img{display:block;}
+
+.introduction{width:335px;margin:0 auto;text-align:center;color:#ccc;background:white;padding:10px 20px;}
+.introduction>text:first-of-type{text-align:left;color:black;}
+.conts {
+  font-size: 28rpx;
+  line-height: 50rpx;
+  /*关键属性（必须有的）  */
+  display: -webkit-box;
+  border-bottom:1px solid #f0f0f0;
+  padding:3px 0;
+}
+.hide {
+  /*规定子元素的排列方向 */
+  -webkit-box-orient: vertical;
+  /*限制文本显示的行数  */
+  -webkit-line-clamp: 2;
+  /*实现多余的文字隐藏并用省略号来代表被隐藏的文字  */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score{width:335px;height:40px;margin-top:10px;padding:0 20px;display:flex;align-items:center;background:white;}
+.kong{width:70px;}
+
+.comment{width:335px;height:auto;padding:0 20px;margin-bottom:5px;background:white;}
+.commentLeft{width:60px;height:auto;text-align:center;padding-top:10px;display:inline-block;float:left;}
+.commentRight{width:270px;height:auto;padding-top:10px;float:left;}
+.commentRight>text:first-of-type{color:black;font-size:16px;}
+.commentRight>text:nth-of-type(2){color:rgba(166, 166, 166, 1);}
+.commentRight>text:nth-of-type(3){color:rgba(56, 56, 56, 1);font-size:15px;margin:2px 0;}
+.commentRight>text:last-of-type{color:rgba(166, 166, 166, 1);font-size:12px;}
+
+.kongView{height:50px;width:375px;}
+.btn{position:fixed;bottom:0;left:0;background:white;width:375px;text-align:right;}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 180px;
+  height: 100px;
+  background-color: #fff;
+  padding: 10px;
+  text-align:center;
+}

@@ -1,0 +1,109 @@
+<!--pages/userInfo/info.wxml-->
+<view class="continer">
+  <view class="user" bindtap="toEditor">
+    <van-image
+      round
+      width="82px"
+      height="82px"
+      src="{{userImg}}"
+      alt="头像"
+      fit="cover"
+    />
+    <view class="userText">
+      <text class="nameText">{{userName}}\n</text>
+      <text class="dataText">{{toEditor}} ></text>
+    </view>
+    <view class="userBtn" wx:if="{{isBtnShow}}" catchtap="outLogin">
+      <van-button 
+        round 
+        type="info" 
+        size="mini" 
+        color="#454553">
+        退出登录
+      </van-button>
+    </view>
+  </view>
+  <view class="about">
+    <view class="time">
+      <text>{{readTime}}\n</text>
+      <text>读书时长</text>
+    </view>
+    <view class="integral">
+      <text>{{integral}}\n</text>
+      <text>积分</text>
+    </view>
+    <view class="fans">
+      <text>{{fans}}\n</text>
+      <text>粉丝</text>
+    </view>
+  </view>
+  <view class="history">
+    <view class="historyText">
+      <text>最近阅读</text>
+    </view>
+    <view class="historyImg" wx:if="{{isBtnShow}}">
+      <scroll-view scroll-x class="scrollX">
+        <view class="scrOut">
+          <view class="scrBox" wx:for="{{recently}}">
+            <van-image
+              width="80px"
+              height="87px"
+              fit="cover"
+              src="{{item.bookImg}}"
+            />
+            <view class="van-multi-ellipsis--l2">
+              {{item.bookName}}
+            </view>
+          </view>
+          <view class="scrBox">
+            <van-image
+              width="80px"
+              height="87px"
+              fit="cover"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+            <view class="van-multi-ellipsis--l2">
+              这是一段最多显示两行的文字，后面的内容会省略。
+            </view>
+          </view>
+          <view class="scrBox">
+            <van-image
+              width="80px"
+              height="87px"
+              fit="cover"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+            <view class="van-multi-ellipsis--l2">
+              这是一段最多显示两行的文字，后面的内容会省略。
+            </view>
+          </view>
+          <view class="scrBox">
+            <van-image
+              width="80px"
+              height="87px"
+              fit="cover"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+            <view class="van-multi-ellipsis--l2">
+              这是一段最多显示两行的文字，后面的内容会省略。
+            </view>
+          </view>
+          <view class="scrBox">
+            <van-image
+              width="80px"
+              height="87px"
+              fit="cover"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+            <view class="van-multi-ellipsis--l2">
+              这是一段最多显示两行的文字，后面的内容会省略。
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="historyShelf">
+      <navigator url="../shelf/shelf" open-type="switchTab"><text>查看书架</text></navigator>
+    </view>
+  </view>
+</view>

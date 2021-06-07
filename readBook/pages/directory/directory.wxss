@@ -1,0 +1,4 @@
+/* pages/directory/directory.wxss */
+.side{margin-top:10px;}
+.side>text:first-of-type{font-size:30px;color:black;padding-left:20px;}
+.numText{margin-bottom:10px;font-size:16px;padding-left:20px;display: block;}

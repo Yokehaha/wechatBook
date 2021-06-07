@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="search">
+    <van-search
+      value="{{ value }}"
+      background="#f0f0f0"
+      shape="round"
+      placeholder="请输入搜索关键词"
+      use-action-slot
+      bind:change="onChange"
+    >
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
+  <view class="change">
+    <view class="changeTop">
+      <text>热门搜索</text>
+      <van-icon name="replay" color="rgba(52, 152, 254, 1)" class="changeIcon" bindtap="change"/>
+    </view>
+    <view class="changeBottom">
+      <view wx:for="{{smallList}}" wx:key="unique" bindtap="goSearch" id="{{item}}">
+        <text class="changeText">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="history">
+    <view class="historyText">
+      <view class="histroyRecord">
+        <text>历史记录</text>
+      </view>
+      <view wx:if="{{sercherStorage.length!==0}}" bindtap="clearSearchStorage" class="historyClear">
+        <text>清除历史记录</text>
+      </view>
+    </view>
+    <view wx:for="{{sercherStorage}}" wx:key="item.id">
+      <view class="liClass" id="{{item.id}}" bindtap="tapSercherStorage" value="{{item.name}}">
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

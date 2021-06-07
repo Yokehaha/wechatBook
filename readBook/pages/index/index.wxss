@@ -1,0 +1,30 @@
+/**index.wxss**/
+.container{position: relative;}
+
+.fixedSearch{position:fixed;left:0;width:100%;z-index:1;}
+.searchView{height:100px;background:#f0f0f0;padding:10px 20px;}
+.searchTop{width:100%;height:20px;}
+.searchIcon{float:right;}
+.searchBottom>view{margin-top:10px;}
+.searchBottom{width:100%;height:80px;}
+.changeText{float:left;margin:3px 5px;width:auto;height:23px;border:1px solid #ccc;padding:0 5px;text-align:center;border-radius:20px;}
+
+.hotView{padding:10px 15px 0;}
+.hotRecommend{float:left;font-size:20px;color:rgba(0, 0, 0, 1);margin-bottom:10px;}
+.hotAll{float:right;font-size:16px;color:rgba(52, 152, 254, 1);margin-top:5px;}
+.scrollX .scrOut{display:flex;flex-wrap:nowrap;}
+.scrollX .scrBox{width:96px;height:204px;margin-right:20px;flex:0 0 100px;}
+.scrBox text{font-size:12px;color:rgba(56, 56, 56, 1);}
+.scrBox text:last-of-type{color:rgba(128, 128, 128, 1);}
+
+.selectView{padding:0 15px;margin-top:10px;}
+.selectText{float:left;font-size:20px;color:rgba(0, 0, 0, 1);margin-bottom:10px;}
+.selectOne,.selectTwo,.selectThree{margin-bottom:20px;}
+.oneRow text:first-of-type{font-size:15px;color:rgba(0, 0, 0, 1);}
+.twoRow text:first-of-type{font-size:15px;color:rgba(0, 0, 0, 1);}
+.threeRow text:first-of-type{font-size:15px;color:rgba(0, 0, 0, 1);}
+.oneRow,.twoRow,.threeRow text:last-of-type{font-size:14px;color:rgba(128, 128, 128, 1);}
+.oneRow,.twoRow,.threeRow view{font-size:14px;color:rgba(128, 128, 128, 1);}
+.selectFour{width:100%;height:150px;margin-bottom:40px;}
+.fourRow text:first-of-type{color:rgba(0, 0, 0, 1);font-size:12px;}
+.fourRow text:last-of-type{color:rgba(128, 128, 128, 1);font-size:12px;}
